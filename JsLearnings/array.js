@@ -47,3 +47,28 @@ console.log(innerArray)
 
 let a=mixedArrays.shift()
 console.log(a)
+
+
+
+// 1) Find the number of occurances.  // Easy
+
+// const nums = [2,4,5,2,1,2];
+// const k = 2
+// // output >> 3
+let count=0
+// hint: loop through the array and compare the k with array index value and if matches, increase the count
+function getOccCount(nums,k){
+   
+
+    for(let index=0;index<nums.length;index++){
+        if(nums[index]===k){
+            count++
+        }
+        
+    }
+    return count
+}
+
+let occurances=getOccCount([2,3,4,5,2,5,2,4,6,2],5)
+console.log(occurances)
+
