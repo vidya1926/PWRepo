@@ -35,6 +35,8 @@ console.log(((a,b)=>a+b)(2,3));
  await
 */
 
+setTimeout(()=>console.log("Learning asynchronous"),200)
+
 
  function learnPromise(){ return new Promise((resolve,reject)=>{
     const success=false;
