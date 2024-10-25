@@ -36,6 +36,25 @@ console.log(((a,b)=>a+b)(2,3));
 */
 
 
+ function learnPromise(){ return new Promise((resolve,reject)=>{
+    const success=false;
+    if(success){
+        console.log(success)
+        setTimeout(() => {
+            resolve("Respose code is 200")  
+        }, 2000);
+        
+    }else{
+        reject("404 error")
+    }
+})
+}
+
+
+learnPromise().then((message=>console.log(message))).catch((error)=>console.error(error));
+
+
+
 
 let pizzaType;
 function orderPizza(){
