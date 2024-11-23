@@ -27,7 +27,7 @@ export async function generateToken(){
 }
 
 let id:any
-export async function createLead(request:APIRequestContext,lname:string,cname:string):Promise<String>{
+export async function createLead(request:APIRequestContext,lname:string,cname:string){
     const res=await request.post(`${(await generateToken()).instUrl}/services/data/v62.0/sobjects/Lead`,{
         headers:{
             "Content-Type":"application/json",
@@ -40,11 +40,11 @@ export async function createLead(request:APIRequestContext,lname:string,cname:st
     })
 
      const leadRes=await res.json()
-     id=leadRes.id
-     return id 
+     console.log(leadRes)
+     id=leadRes.id    
 }
 
-export async function getLead(request:APIRequestContext){
+export async function getLead(request:APIRequestContext):Promise<string>{
     const res=await request.get(`${(await generateToken()).instUrl}/services/data/v62.0/sobjects/Lead/${id}`,{
         headers:{
             "Content-Type":"application/json",
@@ -52,6 +52,7 @@ export async function getLead(request:APIRequestContext){
         }
     })
     const leaRes=await res.json()
-    console.log(leaRes.company)
-    expect(res.status()).toBe(201)
+    expect(res.status()).toBe(200)
+    console.log(leaRes.LastName)
+    return leaRes.LastName
 }
